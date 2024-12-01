@@ -35,11 +35,11 @@ public:
 	{
 		cout << name << species << continent << kilogram << endl;
 	}
-	void Eat()
+	virtual void Eat()
 	{
 		cout << "Unknown food for animal\n";
 	}
-	void Sound()
+	virtual void Sound()
 	{
 		cout << "Unknown sound of animal\n";
 	}
@@ -115,7 +115,32 @@ public:
 
 int main()
 {
-	Parrot obj1("Ara\t", "Parrot\t", "South and central Africa\t", 1.5);
+	int selection;
+	Animal* animal;
+	cout << "Select Animal: 1 - Parrot, 2 - Elephant, 3 - Dog, 4 - Cat " << endl;
+	cin >> selection;
+	switch (selection)
+	{
+	case(1):
+		animal = new Parrot("Ara\t", "Parrot\t", "South and central Africa\t", 1.5);
+		break;
+	case(2):
+		animal = new Elephant("Indian\t", "Elephant\t", "Asia\t", 5000);
+		break;
+	case(3):
+		animal = new Dog("Great Dane\t", "Dog\t", "Germany\t", 80);
+		break;
+	case(4):
+		animal = new Cat("Cornish Rex\t", "Cat\t", "United Kingdom\t", 3);
+		break;
+	}
+	animal->Print();
+	animal->Eat();
+	animal->Sound();
+
+
+
+	/*Parrot obj1("Ara\t", "Parrot\t", "South and central Africa\t", 1.5);
 	obj1.Print();
 	obj1.Eat();
 	obj1.Sound();
@@ -133,5 +158,5 @@ int main()
 	Cat obj4("Cornish Rex\t", "Cat\t", "United Kingdom\t", 3);
 	obj4.Print();
 	obj4.Eat();
-	obj4.Sound();
+	obj4.Sound();*/
 }
